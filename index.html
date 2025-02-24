@@ -164,37 +164,69 @@
 						<div class="inner">
 							<h2 class="major">Get in touch</h2>
 							<p>Interested in connecting? Feel free to reach out. I check my inbox daily and respond promptly</p>
-							<form method="post" action="#">
+							<form action="https://docs.google.com/forms/d/e/1FAIpQLScetzpkl1GLyHSt9sPXFFAo7npPjYSa3ySebejmpVQaezJJWA/formResponse" method="post" id="gform" target="hidden_iframe" onsubmit="submitted=true;">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
+										<input type="text" name="entry.1873675485" id="name" required/>
 									</div>
 									<div class="field">
 										<label for="email">Email</label>
-										<input type="email" name="email" id="email" />
+										<input type="email" name="entry.694122747" id="email" required/>
 									</div>
 									<div class="field">
 										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4"></textarea>
+										<textarea name="entry.946035159" id="message" rows="4" required></textarea>
 									</div>
 								</div>
 								<ul class="actions">
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
 							</form>
+
+							
+							<div id="message-success" style="display:none;">
+								<i class="fa fa-check"></i> Your message was sent successfully!
+							</div>
+							<div id="message-warning" style="display:none;">
+								Error: Please try again later.
+							</div>
+							
+							<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+							
 							<ul class="contact">
 								<li class="icon solid fa-user">
 									Contact me:<br />
 								</li>
 								<li class="icon solid fa-phone">(786) 599-9022</li>
-								<li class="icon solid fa-envelope"><a href="#">alejandroalfonso4427@gmail.com</a></li>
+								<li class="icon solid fa-envelope"><a href="mailto:alejandroalfonso4427@gmail.com">alejandroalfonso4427@gmail.com</a></li>
 
 							</ul>
 							<ul class="copyright">
 								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
+						<script type="text/javascript">
+							var submitted = false;
+							$(document).ready(function() {
+								$('#gform').on('submit', function(e) {
+									// Hide form elements
+									$('#gform *').css('opacity', '0');
+									$('#gform').css('position', 'relative');
+									
+									// Show success message
+									$('#message-success').fadeIn(1000);
+									
+									// Reset form after 3 seconds
+									setTimeout(function() {
+										$('#gform').trigger("reset");
+										$('#gform *').css('opacity', '1');
+										$('#message-success').fadeOut(500);
+									}, 3000);
+								});
+							});
+						</script>
+						
 					</section>
 
 			</div>
