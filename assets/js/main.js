@@ -71,7 +71,25 @@
 			navLinksContainer.classList.toggle('active');
 		});
 	});
-	
+
+	document.addEventListener('DOMContentLoaded', function() {
+		const form = document.getElementById('gform');
+		
+		form.addEventListener('submit', function(e) {
+			// Prevent default submission (temporarily)
+			e.preventDefault();
+			
+			// Show loading state
+			$('#gform *').fadeOut(500);
+			$('#gform').prepend('<div class="loading">Sending...</div>');
+			
+			// Submit to Google Forms after 1 second
+			setTimeout(() => {
+				form.submit();
+				$('#gform').html('<div class="success-message">Thank you! Message sent.</div>');
+			}, 1000);
+		});
+	});
 	
 
 	
