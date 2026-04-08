@@ -6,14 +6,311 @@
 -->
 <html>
 	<head>
-		<title>AleAlfonsoG.dev</title>
+		<title>Alejandro Alfonso | CS Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Alejandro Alfonso González — Computer Science student at FIU, AI Fellow, Teaching Assistant, and software engineer based in Miami, FL." />
+		<meta property="og:title" content="Alejandro Alfonso | CS Portfolio" />
+		<meta property="og:description" content="Computer Science student at FIU, AI Fellow, Teaching Assistant, and software engineer based in Miami, FL." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://aalfonsog00.github.io/" />
+		<meta property="og:image" content="https://aalfonsog00.github.io/images/me.jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Alejandro Alfonso | CS Portfolio" />
+		<meta name="twitter:description" content="CS student at FIU · AI Fellow · Teaching Assistant · Building real-world software from Miami, FL." />
+		<meta name="twitter:image" content="https://aalfonsog00.github.io/images/me.jpg" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
+	<style>
+		html { scroll-behavior: smooth; }
+
+		/* Scroll reveal */
+		.reveal {
+			opacity: 0;
+			transform: translateY(35px);
+			transition: opacity 0.65s ease, transform 0.65s ease;
+		}
+		.reveal-left {
+			opacity: 0;
+			transform: translateX(-60px);
+			transition: opacity 0.7s ease, transform 0.7s ease;
+		}
+		.reveal-right {
+			opacity: 0;
+			transform: translateX(60px);
+			transition: opacity 0.7s ease, transform 0.7s ease;
+		}
+		.reveal.visible, .reveal-left.visible, .reveal-right.visible {
+			opacity: 1;
+			transform: none;
+		}
+		.reveal:nth-child(2) { transition-delay: 0.12s; }
+		.reveal:nth-child(3) { transition-delay: 0.24s; }
+		.reveal:nth-child(4) { transition-delay: 0.36s; }
+
+		/* Gold on specific static elements */
+		strong { color: #D4A843 !important; }
+		em { color: #D4A843; }
+		h3.major { color: #D4A843; }
+
+		/* FIU gold accent highlight */
+		.highlight {
+			color: #D4A843;
+			position: relative;
+		}
+		h2.major .highlight {
+			color: inherit;
+		}
+		h2.major, h2.major span {
+			font-weight: 700;
+		}
+		.highlight-underline {
+			background-image: linear-gradient(transparent 60%, rgba(212,168,67,0.3) 60%);
+		}
+		.skill-tag i {
+			margin-right: 0.3em;
+			font-size: 1.1em;
+		}
+
+		/* School background animations */
+		.school-block {
+			position: relative;
+			overflow: hidden;
+			padding: 1em 0;
+		}
+
+		/* FIU panther footprints trail */
+		.school-block > h3, .school-block > p, .school-block > ul {
+			position: relative;
+			z-index: 1;
+		}
+		.paw-trail {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: 0;
+		}
+		.paw {
+			position: absolute;
+			width: 22px;
+			height: auto;
+			filter: invert(1);
+			opacity: 0;
+			animation: paw-step 8s ease-in-out infinite;
+		}
+		@keyframes paw-step {
+			0%   { opacity: 0; }
+			10%  { opacity: 0.09; }
+			35%  { opacity: 0.09; }
+			50%  { opacity: 0; }
+			100% { opacity: 0; }
+		}
+
+		/* MDC waves + shark fin */
+		.school-mdc {
+			min-height: 4em;
+		}
+		.school-mdc::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 200%;
+			height: 35px;
+			opacity: 0.06;
+			background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 40'%3E%3Cpath d='M0 20Q75 5 150 20T300 20T450 20T600 20T750 20T900 20T1050 20T1200 20V40H0Z' fill='white'/%3E%3C/svg%3E") repeat-x;
+			background-size: 600px 35px;
+			animation: wave-scroll 5s linear infinite;
+			pointer-events: none;
+		}
+		.school-mdc::after {
+			content: '';
+			position: absolute;
+			bottom: 14px;
+			width: 28px;
+			height: 30px;
+			opacity: 0;
+			background: url("images/pngegg (1).png") no-repeat center;
+			background-size: contain;
+			filter: invert(1);
+			animation: fin-swim 10s ease-in-out infinite;
+			pointer-events: none;
+		}
+		@keyframes wave-scroll {
+			0%   { transform: translateX(0); }
+			100% { transform: translateX(-50%); }
+		}
+		@keyframes fin-swim {
+			0%   { left: -5%; opacity: 0; transform: translateY(0); }
+			8%   { opacity: 0.12; }
+			50%  { transform: translateY(-5px); }
+			92%  { opacity: 0.12; }
+			100% { left: 105%; opacity: 0; transform: translateY(0); }
+		}
+
+		/* Skill badge pills */
+		.skill-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.45em;
+			margin-top: 0.6em;
+		}
+		.skill-tag {
+			background: rgba(255,255,255,0.08);
+			border: 1px solid rgba(255,255,255,0.2);
+			color: inherit;
+			padding: 0.25em 0.7em;
+			border-radius: 2em;
+			font-size: 0.8em;
+			letter-spacing: 0.03em;
+			transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+			cursor: default;
+		}
+		.skill-tag:hover {
+			background: rgba(212,168,67,0.15);
+			border-color: rgba(212,168,67,0.6);
+			color: #D4A843;
+			transform: translateY(-2px);
+		}
+
+		/* Project card hover lift */
+		#projects .features article {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			border-left: 3px solid transparent;
+			display: flex;
+			flex-direction: column;
+		}
+		#projects .features article .project-links {
+			margin-top: auto;
+			padding-top: 1em;
+			padding-bottom: 0.5em;
+		}
+		#projects .features article:hover {
+			transform: translateY(-7px);
+			box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+			border-left-color: #D4A843;
+		}
+		#projects .features article .image { overflow: hidden; }
+		#projects .features article .image video {
+			transition: transform 0.45s ease;
+		}
+		#projects .features article:hover .image video {
+			transform: scale(1.05);
+		}
+		.project-links {
+			display: flex;
+			gap: 0.75em;
+		}
+		.project-links a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.5em;
+			height: 2.5em;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.1);
+			border: 1px solid rgba(255,255,255,0.25);
+			color: #fff;
+			font-size: 1.1em;
+			transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+		}
+		.project-links a:hover {
+			background: rgba(212,168,67,0.2);
+			transform: translateY(-3px);
+			border-color: rgba(212,168,67,0.6);
+			color: #D4A843;
+		}
+
+		/* ScrollSpy active nav link */
+		.nav-links li a.active {
+			color: #D4A843;
+			border-bottom: 2px solid #D4A843;
+			padding-bottom: 2px;
+		}
+
+		/* Back-to-top button */
+		#back-to-top {
+			position: fixed;
+			bottom: 2rem;
+			right: 2rem;
+			width: 3rem;
+			height: 3rem;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.15);
+			border: 1px solid rgba(255,255,255,0.3);
+			color: #fff;
+			font-size: 1.2rem;
+			cursor: pointer;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0.3s ease, background 0.2s ease;
+			z-index: 999;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#back-to-top.visible {
+			opacity: 1;
+			visibility: visible;
+		}
+		#back-to-top:hover {
+			background: rgba(212,168,67,0.3);
+			color: #D4A843;
+		}
+
+		/* Typewriter cursor */
+		.typewriter-cursor {
+			animation: blink 0.75s step-end infinite;
+			margin-left: 2px;
+		}
+		@keyframes blink {
+			50% { opacity: 0; }
+		}
+
+		/* Work timeline */
+		.timeline {
+			position: relative;
+			padding-left: 2rem;
+			margin-top: 1.5em;
+		}
+		.timeline::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 2px;
+			background: rgba(255,255,255,0.25);
+		}
+		.timeline-item {
+			position: relative;
+			padding-bottom: 2em;
+		}
+		.timeline-item:last-child {
+			padding-bottom: 0;
+		}
+		.timeline-item::before {
+			content: '';
+			position: absolute;
+			left: -2rem;
+			top: 0.35em;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background: #fff;
+			border: 2px solid rgba(255,255,255,0.5);
+			transform: translateX(-5px);
+		}
+		.timeline-item h3 { margin-bottom: 0.3em; }
+		.timeline-item p { margin-bottom: 0.5em; }
+	</style>
 	</head>
 	<body class="is-preload">
 
@@ -22,33 +319,34 @@
 
 				<!-- Header -->
 				<header id="header" class="alt">
-					<h1><a href="index.html">Solid State</a></h1>
+					<h1><a href="index.html">Alejandro Alfonso</a></h1>
 					<button class="menu-toggle">☰</button>
 					<nav id="main-nav">
 						<ul class="nav-links">
 							<li><a href="#banner">Home</a></li>
 							<li><a href="#aboutme">About me</a></li>
 							<li><a href="#education">Education</a></li>
-							<!-- <li><a href="#work">Work</a></li> -->
+							<li><a href="#work">Work</a></li>
 							<li><a href="#projects">Projects</a></li>
+							<li><a href="#skills">Skills</a></li>
 							<li><a href="#footer">Get in touch</a></li>
 						</ul>
 					</nav>
 				</header>
 
-				
+
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
 							<div class="logo"><span class="icon solid fas fa-code"></span></div>
-							<h2>Hey! I'm Alejandro.</h2>
-							<p>I am a computer science student who loves tech.</p>
+							<h2>Hey! I'm <span class="highlight">Alejandro</span>.</h2>
+							<p id="banner-tagline">CS student at FIU &middot; AI Fellow &middot; Teaching Assistant &middot; Building real-world software from Miami, FL.</p>
 							<div class="social-icons">
-								<a href="mailto:alejandroalfonso4427@gmail.com"><i class="icon solid fas fa-envelope fa-fw"></i></a>
-								<a href="https://www.linkedin.com/in/alejandro-alfonso-gonzalez-b91b22303/"><i class="fab fa-linkedin-in fa-fw"></i></a>
-								<a href="https://github.com/aalfonsog00"><i class="fab fa-github fa-fw"></i></a>
+								<a href="mailto:alejandroalfonso4427@gmail.com" aria-label="Email"><i class="icon solid fas fa-envelope fa-fw"></i></a>
+								<a href="https://www.linkedin.com/in/alejandro-alfonso-gonzalez-b91b22303/" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-fw"></i></a>
+								<a href="https://github.com/aalfonsog00" aria-label="GitHub"><i class="fab fa-github fa-fw"></i></a>
 							</div>
-							
+
 						</div>
 					</section>
 
@@ -58,10 +356,10 @@
 						<!-- One -->
 							<section id="aboutme" class="wrapper spotlight style1">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/me.jpg" alt="" class="profile-pic" /></a>
-									<div class="content">
-										<h2 class="major">About Me</h2>
-										<p>Proud Cuban immigrant currently living in Miami, Florida, on a mission to bring my dream of becoming a software engineer to life. Growing up in Havana sparked my love for problem solving and creativity traits I now channel into building modern, impactful solutions that blend my cultural heritage with forward-thinking technology.</p>
+									<a href="#" class="image"><img src="images/me.jpg" alt="Alejandro Alfonso" class="profile-pic" /></a>
+									<div class="content reveal-left">
+										<h2 class="major">About <span class="highlight">Me</span></h2>
+										<p>Proud Cuban immigrant currently living in Miami, Florida, on a mission to bring my dream of becoming a <span class="highlight-underline">software engineer</span> to life. Growing up in Havana sparked my love for problem solving and creativity traits I now channel into building modern, impactful solutions that blend my cultural heritage with forward-thinking technology.</p>
 										<h3>Contact Details</h3>
 										<ul class="contact-info">
 											<strong>Email:</strong> <a href="mailto:alejandroalfonso4427@gmail.com">alejandroalfonso4427@gmail.com</a><br>
@@ -70,11 +368,11 @@
 										</ul>
 										<!-- Add download button here -->
 										<div class="button-container">
-											<a href="documents/CSResume.pdf" class="special download-button" download="CSResume.pdf">
+											<a href="documents/Resume_CS.pdf" class="special download-button" download="Resume_CS.pdf">
 												Download Resume
 											</a>
 										</div>
-										
+
 									</div>
 								</div>
 							</section>
@@ -82,94 +380,191 @@
 						<!-- Two -->
 							<section id="education" class="wrapper alt spotlight style2">
 								<div class="inner">
-									<a href="#" class="image"><img src="images/FIU.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Education</h2>
+									<a href="#" class="image"><img src="images/FIU.jpg" alt="Florida International University" loading="lazy" /></a>
+									<div class="content reveal-right">
+										<h2 class="major"><span class="highlight">Education</span></h2>
+
+									<div class="school-block school-fiu">
+									<div class="paw-trail">
+										<img src="images/pngegg.png" class="paw" style="bottom:5%;left:5%;animation-delay:0s;transform:rotate(-25deg);" alt="">
+										<img src="images/pngegg.png" class="paw" style="bottom:20%;left:15%;animation-delay:1s;transform:rotate(20deg);" alt="">
+										<img src="images/pngegg.png" class="paw" style="bottom:35%;left:28%;animation-delay:2s;transform:rotate(-20deg);" alt="">
+										<img src="images/pngegg.png" class="paw" style="bottom:50%;left:40%;animation-delay:3s;transform:rotate(25deg);" alt="">
+										<img src="images/pngegg.png" class="paw" style="bottom:65%;left:55%;animation-delay:4s;transform:rotate(-15deg);" alt="">
+										<img src="images/pngegg.png" class="paw" style="bottom:78%;left:68%;animation-delay:5s;transform:rotate(20deg);" alt="">
+										<img src="images/pngegg.png" class="paw" style="bottom:90%;left:82%;animation-delay:6s;transform:rotate(-25deg);" alt="">
+									</div>
 										<h3>Florida International University | Miami, FL</h3>
-										<p><strong>Bachelor of Science in Computer Science</strong></p>
+										<p><strong>B.S. in Computer Science</strong> &mdash; Expected January 2027</p>
 										<ul>
-											<li>Expected Graduation: Spring 2027</li>
-											<li>Currently exploring advanced programming concepts and software engineering principles</li>
+											<li>GPA: <span class="highlight">3.95</span> &mdash; Dean's List: Spring 2025 &ndash; Present</li>
+											<li>Relevant coursework: Quantum Computing, Data Structures &amp; Algorithms, Database Management, System Programming, Software Testing, Net Centric Computing</li>
 										</ul>
-							
+									</div>
+
+									<div class="school-block school-mdc">
 										<h3>Miami Dade College | Miami, FL</h3>
-										<p><strong>Associate of Arts in Computer Science</strong></p>
-										<h4>Notable Achievements:</h4>
+										<p><strong>A.A. in Computer Science</strong> &mdash; May 2023 &ndash; December 2024</p>
 										<ul>
-											<li>Academic Excellence Award Recipient</li>
-											<li>Phi Theta Kappa Honor Society Member</li>
-											<li>Dean's List: Fall 2022 - Spring 2024</li>
+											<li>GPA: <span class="highlight">3.92</span> &mdash; Dean's List: Spring 2023 &ndash; Fall 2024</li>
+											<li>Phi Theta Kappa Honor Society &mdash; Inducted March 2023, top 10% of class</li>
+											<li>Academic Excellence Award, December 2024 &mdash; Nominated by professors for outstanding achievement</li>
+											<li>Relevant coursework: Programming Fundamentals (C++), Java I/II</li>
 										</ul>
-										<h4>Coursework highlights:</h4>
+									</div>
+									</div>
+								</div>
+							</section>
+
+						<!-- Work Experience -->
+						<section id="work" class="wrapper style3">
+							<div class="inner reveal-left">
+								<h2 class="major">Work <span class="highlight">Experience</span></h2>
+								<div class="timeline">
+									<div class="timeline-item">
+										<h3>Break Through Tech AI Program &mdash; 2026&ndash;2027</h3>
+										<p><em>AI Fellow</em></p>
 										<ul>
-											<li>Object-Oriented Programming | Intro to C++</li>
-											<li>Basic Structure and Sorting Algorithm | Java I/II</li>
-										</ul>										            
+											<li>Selected for a competitive national fellowship offering a 9-week machine learning course, hands-on industry projects, and professional development for high-potential undergraduate students</li>
+										</ul>
+									</div>
+									<div class="timeline-item">
+										<h3>Florida International University &mdash; Spring 2026</h3>
+										<p><em>Teaching Assistant, Quantum Computing &mdash; Miami, FL</em></p>
+										<ul>
+											<li>Assisted professor in structuring and delivering quantum computing curriculum to 50+ students, providing technical guidance on quantum algorithms, circuit design, and Qiskit programming</li>
+											<li>Conducted weekly office hours, graded assignments, and created supplementary study materials</li>
+										</ul>
 									</div>
 								</div>
-							</section>
+							</div>
+						</section>
 
-						<!-- Three -->
-							<section id="three" class="wrapper spotlight style3">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Work</h2>
-										<p>Experience</p>										
-									</div>
-								</div>
-							</section>
+						<!-- Projects -->
+						<section id="projects" class="wrapper alt style1">
+							<div class="inner">
+								<h2 class="major"><span class="highlight">Projects</span></h2>
+								<p>A selection of projects I've built &mdash; from AI-powered web platforms to full-stack automation tools.</p>
+								<section class="features">
+									<article class="reveal">
+										<a href="https://tilevision-ecru.vercel.app/" class="image" target="_blank">
+										<video autoplay muted loop playsinline>
+											<source src="videos/tilevision.mp4" type="video/mp4">
+										</video>
+									</a>
+										<h3 class="major">TileVision</h3>
+										<p>Production-ready tile design platform integrating OpenAI GPT-3.5 and Google Gemini APIs for conversational design recommendations and photorealistic room visualizations. Features a serverless proxy layer on Vercel for secure key management and 28+ modular JS components.</p>
+										<div class="skill-tags" style="margin-bottom:1em;">
+											<span class="skill-tag">JavaScript (ES6+)</span>
+											<span class="skill-tag">HTML5/CSS3</span>
+											<span class="skill-tag">OpenAI GPT-3.5</span>
+											<span class="skill-tag">Gemini API</span>
+											<span class="skill-tag">Vercel</span>
+											<span class="skill-tag">Node.js</span>
+										</div>
+										<div class="project-links">
+											<a href="https://tilevision-ecru.vercel.app/" target="_blank" aria-label="Live Demo" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+											<a href="https://github.com/aalfonsog00/tilevision" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+										</div>
+									</article>
+									<article class="reveal">
+										<a href="https://github.com/aalfonsog00/dbtile-invoice-verifier" class="image" target="_blank">
+										<video autoplay muted loop playsinline>
+											<source src="videos/invoiceverific.mp4" type="video/mp4">
+										</video>
+									</a>
+										<h3 class="major">Invoice Verification System</h3>
+										<p>Automated daily invoice reconciliation for 100+ invoices, cutting verification time by <span class="highlight">70&ndash;90%</span>. Full-stack Flask app with Excel/PDF parsing, USB barcode scanner integration, and a real-time dashboard with drag-and-drop uploads and color-coded status indicators.</p>
+										<div class="skill-tags" style="margin-bottom:1em;">
+											<span class="skill-tag">Python</span>
+											<span class="skill-tag">Flask</span>
+											<span class="skill-tag">pandas</span>
+											<span class="skill-tag">PyPDF2</span>
+											<span class="skill-tag">JavaScript</span>
+											<span class="skill-tag">Bootstrap 5</span>
+										</div>
+										<div class="project-links">
+											<a href="https://github.com/aalfonsog00/dbtile-invoice-verifier" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+										</div>
+									</article>
+								</section>
+							</div>
+						</section>
 
-						<!-- Four -->
-							<section id="projects" class="wrapper alt style1">
-								<div class="inner">
-									<h2 class="major">Projects</h2>
-									<p>text</p>
-									<section class="features">
-										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3 class="major">project 1</h3>
-											<p>Description</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">Project 2</h3>
-											<p>Description</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-											<h3 class="major">Project 3</h3>
-											<p>Description</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<h3 class="major">Project 4</h3>
-											<p>Description</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-									</section>
-									<ul class="actions">
-										<li><a href="#" class="button">Browse All</a></li>
-									</ul>
-								</div>
-							</section>
+					<!-- Skills -->
+						<section id="skills" class="wrapper style2">
+							<div class="inner">
+								<h2 class="major"><span class="highlight">Skills</span></h2>
+								<section class="features">
+									<article class="reveal">
+										<span class="icon solid major fa-code"></span>
+										<h3 class="major">Languages</h3>
+										<div class="skill-tags">
+											<span class="skill-tag"><i class="devicon-java-plain"></i> Java</span>
+											<span class="skill-tag"><i class="devicon-python-plain"></i> Python</span>
+											<span class="skill-tag"><i class="devicon-cplusplus-plain"></i> C++</span>
+											<span class="skill-tag"><i class="devicon-c-plain"></i> C</span>
+											<span class="skill-tag"><i class="devicon-javascript-plain"></i> JavaScript (ES6+)</span>
+											<span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+											<span class="skill-tag"><i class="devicon-html5-plain"></i> HTML5</span>
+											<span class="skill-tag"><i class="devicon-css3-plain"></i> CSS3</span>
+										</div>
+									</article>
+									<article class="reveal">
+										<span class="icon solid major fa-tools"></span>
+										<h3 class="major">Frameworks &amp; Tools</h3>
+										<div class="skill-tags">
+											<span class="skill-tag"><i class="devicon-nodejs-plain"></i> Node.js</span>
+											<span class="skill-tag"><i class="devicon-flask-original"></i> Flask</span>
+											<span class="skill-tag"><i class="devicon-bootstrap-plain"></i> Bootstrap 5</span>
+											<span class="skill-tag"><i class="devicon-vercel-original"></i> Vercel</span>
+											<span class="skill-tag">REST APIs</span>
+											<span class="skill-tag"><i class="devicon-pandas-plain"></i> pandas</span>
+											<span class="skill-tag">PyPDF2</span>
+											<span class="skill-tag">Canvas API</span>
+											<span class="skill-tag">EmailJS</span>
+											<span class="skill-tag"><i class="devicon-github-original"></i> Git/GitHub</span>
+											<span class="skill-tag"><i class="devicon-linux-plain"></i> Linux</span>
+											<span class="skill-tag">Qiskit</span>
+											<span class="skill-tag"><i class="devicon-jupyter-plain"></i> Jupyter Notebook</span>
+										</div>
+									</article>
+									<article class="reveal">
+										<span class="icon solid major fa-desktop"></span>
+										<h3 class="major">Dev &amp; Design</h3>
+										<div class="skill-tags">
+											<span class="skill-tag"><i class="devicon-vscode-plain"></i> VS Code</span>
+											<span class="skill-tag"><i class="devicon-figma-plain"></i> Figma</span>
+											<span class="skill-tag">Wireshark</span>
+											<span class="skill-tag">NetSuite</span>
+											<span class="skill-tag">Unit Testing</span>
+										</div>
+									</article>
+									<article class="reveal">
+										<span class="icon solid major fa-language"></span>
+										<h3 class="major">Languages Spoken</h3>
+										<div class="skill-tags">
+											<span class="skill-tag">English (Advanced)</span>
+											<span class="skill-tag">Spanish (Native)</span>
+										</div>
+									</article>
+								</section>
+							</div>
+						</section>
 
-					</section>
+				</section>
 
 				<!-- Footer -->
 					<section id="footer">
 					<div class="inner">
-						<h2 class="major">Get in touch</h2>
+						<h2 class="major">Get in <span class="highlight">touch</span></h2>
 						<p>Interested in connecting? Feel free to reach out. I check my inbox daily and respond promptly.</p>
-						
+
 						<!-- Form -->
-						<form action="https://docs.google.com/forms/d/e/1FAIpQLScetzpkl1GLyHSt9sPXFFAo7npPjYSa3ySebejmpVQaezJJWA/formResponse" 
-							  method="post" 
-							  id="gform" 
-							  target="hidden_iframe" 
+						<form action="https://docs.google.com/forms/d/e/1FAIpQLScetzpkl1GLyHSt9sPXFFAo7npPjYSa3ySebejmpVQaezJJWA/formResponse"
+							  method="post"
+							  id="gform"
+							  target="hidden_iframe"
 							  onsubmit="submitted=true;">
 							<div class="fields">
 								<div class="field">
@@ -189,15 +584,15 @@
 								<li><input type="submit" value="Send Message" /></li>
 							</ul>
 						</form>
-				
+
 						<!-- Hidden iframe to handle Google Form submission -->
 						<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccessMessage(); }"></iframe>
-				
+
 						<!-- Success message container -->
 						<div id="message-success" style="display:none; color: #4CAF50; font-weight: bold; margin-top: 20px;">
 							Thank you! Your message has been sent.
 						</div>
-						
+
 						<!-- Form and other HTML content -->
 
 							<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -211,23 +606,28 @@
 								});
 							</script>
 
-				
+
 						<!-- Contact info -->
 						<ul class="contact">
 							<li class="icon solid fa-user">Contact me:<br /></li>
 							<li class="icon solid fa-phone">(786) 599-9022</li>
 							<li class="icon solid fa-envelope"><a href="mailto:alejandroalfonso4427@gmail.com">alejandroalfonso4427@gmail.com</a></li>
-						</ul>
-				
-						<!-- Copyright -->
-						<ul class="copyright">
-							<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
+					<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/alejandro-alfonso-gonzalez-b91b22303/" target="_blank">linkedin.com/in/alejandro-alfonso-gonzalez</a></li>
+					<li class="icon brands fa-github"><a href="https://github.com/aalfonsog00" target="_blank">github.com/aalfonsog00</a></li>
+					</ul>
+
+					<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Alejandro Alfonso Gonz&aacute;lez. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
 					</div>
 				</section>
 
 
 			</div>
+
+			<!-- Back to top -->
+			<button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -236,6 +636,80 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+		<script>
+			// Scroll reveal
+			document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function(el) {
+				var obs = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+							obs.disconnect();
+						}
+					});
+				}, { threshold: 0.12 });
+				obs.observe(el);
+			});
+
+			// Typewriter for banner tagline
+			(function() {
+				var el = document.getElementById('banner-tagline');
+				if (!el) return;
+				var text = el.textContent;
+				el.textContent = '';
+				var cursor = document.createElement('span');
+				cursor.className = 'typewriter-cursor';
+				cursor.textContent = '|';
+				el.appendChild(cursor);
+				var i = 0;
+				function type() {
+					if (i < text.length) {
+						el.insertBefore(document.createTextNode(text[i++]), cursor);
+						setTimeout(type, 30);
+					}
+				}
+				setTimeout(type, 600);
+			})();
+
+			// ScrollSpy
+			(function() {
+				var sections = document.querySelectorAll('section[id]');
+				var navLinks = document.querySelectorAll('.nav-links a');
+				function onScroll() {
+					var scrollPos = window.scrollY + 200;
+					var found = false;
+					for (var i = sections.length - 1; i >= 0; i--) {
+						var section = sections[i];
+						if (section.offsetTop <= scrollPos) {
+							navLinks.forEach(function(link) {
+								link.classList.remove('active');
+								if (link.getAttribute('href') === '#' + section.id) {
+									link.classList.add('active');
+								}
+							});
+							found = true;
+							break;
+						}
+					}
+					if (!found) navLinks.forEach(function(l) { l.classList.remove('active'); });
+				}
+				window.addEventListener('scroll', onScroll);
+				onScroll();
+			})();
+
+			// Back-to-top button
+			(function() {
+				var btn = document.getElementById('back-to-top');
+				if (!btn) return;
+				window.addEventListener('scroll', function() {
+					if (window.scrollY > 600) btn.classList.add('visible');
+					else btn.classList.remove('visible');
+				});
+				btn.addEventListener('click', function() {
+					window.scrollTo({ top: 0, behavior: 'smooth' });
+				});
+			})();
+		</script>
 
 	</body>
 </html>

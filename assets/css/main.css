@@ -198,7 +198,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #ffffff !important;
+			color: #D4A843 !important;
 		}
 
 		a.special:not(.button) {
@@ -246,7 +246,7 @@ input, select, textarea {
 			}
 
 			a.special:not(.button):hover:before {
-				background-color: rgba(255, 255, 255, 0.025);
+				background-color: rgba(212, 168, 67, 0.1);
 			}
 
 			a.special:not(.button):active:before {
@@ -2757,7 +2757,7 @@ input, select, textarea {
 			}
 
 				ul.pagination li > .page:hover {
-					background-color: rgba(255, 255, 255, 0.025);
+					background-color: rgba(212, 168, 67, 0.15);
 				}
 
 				ul.pagination li > .page.active {
@@ -2904,7 +2904,9 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: rgba(255, 255, 255, 0.025);
+			background-color: rgba(212, 168, 67, 0.15);
+			border-color: rgba(212, 168, 67, 0.5);
+			color: #D4A843;
 		}
 
 		input[type="submit"]:active,
@@ -2938,7 +2940,7 @@ input, select, textarea {
 			input[type="button"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background-color: #53639e;
+				background-color: #b8932e;
 			}
 
 			input[type="submit"].primary:active,
@@ -3041,9 +3043,11 @@ input, select, textarea {
 				width: calc(100% + 3.5em);
 			}
 
-				.features article .image img {
+				.features article .image img,
+				.features article .image video {
 					border-radius: 5px 5px 0 0;
 					width: 100%;
+					display: block;
 				}
 
 		@media screen and (max-width: 980px) {
@@ -3136,7 +3140,8 @@ main {
 		}
 		
 		#main-nav .nav-links a:hover {
-			background-color: #555;
+			background-color: rgba(212, 168, 67, 0.2);
+			color: #D4A843;
 		}
 		
 		/* Mobile styles */
@@ -3300,11 +3305,13 @@ main {
 					}
 
 					#header nav a[href="#menu"]:hover {
-						background-color: rgba(255, 255, 255, 0.025);
+						background-color: rgba(212, 168, 67, 0.2);
+						color: #D4A843;
 					}
 
 					#header nav a[href="#menu"]:active {
-						background-color: rgba(255, 255, 255, 0.075);
+						background-color: rgba(212, 168, 67, 0.2);
+						color: #D4A843;
 					}
 
 		#header.alt {
@@ -3480,8 +3487,8 @@ main {
 				}
 
 					#menu .links li a:hover {
-						background: #45558d;
-					}
+					background: rgba(212, 168, 67, 0.2);
+				}
 
 		@media screen and (max-width: 736px) {
 
@@ -3707,9 +3714,13 @@ main {
     transition: all 0.3s ease;
 }
 
-.download-button:hover {
+.download-button:hover,
+a.special.download-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(212,168,67,0.3);
+    border-color: #D4A843 !important;
+    color: #D4A843 !important;
+    background-color: rgba(212, 168, 67, 0.15) !important;
 }
 
 
